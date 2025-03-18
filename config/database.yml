@@ -1,0 +1,33 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: <%= ENV["DB_HOST"] %>
+  username: <%= ENV["DB_USERNAME"] %>
+  password: <%= ENV["DB_PASSWORD"] %>
+
+
+development:
+  primary:
+    <<: *default
+    database: desafio_dev_jr-development
+  queue:
+    <<: *default
+    database: desafio_dev_jr-development
+    migrations_paths: db/queue_migrate
+  cable:
+    <<: *default
+    database: storage/desafio_dev_jr-development_cable
+    migrations_paths: db/cable_migrate
+
+test:
+  <<: *default
+  database: desafio_dev_jr-test
+  queue:
+    <<: *default
+    database: desafio_dev_jr-test
+    migrations_paths: db/queue_migrate
+
+production:
+  <<: *default
+  database: desafio_dev_jr-production
