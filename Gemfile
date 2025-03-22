@@ -7,7 +7,7 @@ gem "dotenv"
 gem "faraday"
 gem "image_processing", "~> 1.2"
 gem "jbuilder"
-gem 'jwt'
+gem "jwt"
 gem "pg"
 gem "rails", "~> 8.0.1"
 gem "rack-cors"

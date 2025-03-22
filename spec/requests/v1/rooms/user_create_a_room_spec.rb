@@ -4,7 +4,7 @@ describe 'User create a room', type: :request do
   context 'POST api/v1/rooms' do
     def sanitizer_response(object)
       object.as_json(
-        except: [:created_at, :updated_at]
+        except: [ :created_at, :updated_at ]
         )
     end
 

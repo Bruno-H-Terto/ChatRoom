@@ -6,7 +6,7 @@ class Api::V1::SessionsController < ApplicationController
       session = user.create_session
       render json: { token: session.encode_token }, status: :created
     else
-      render json: { error: 'Credenciais inválidas' }, status: :unauthorized
+      render json: { error: "Credenciais inválidas" }, status: :unauthorized
     end
   end
 
@@ -14,7 +14,7 @@ class Api::V1::SessionsController < ApplicationController
     user = User.new(user_params)
 
     if user.save
-      return render json: { result: I18n.t('.success') }, status: :created
+      return render json: { result: I18n.t(".success") }, status: :created
     end
 
     render json: { error: user.errors.full_messages.to_sentence }, status: :unprocessable_entity

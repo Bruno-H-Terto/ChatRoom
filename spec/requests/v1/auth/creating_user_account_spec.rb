@@ -3,13 +3,13 @@ require 'rails_helper'
 describe 'Creating user account', type: :request do
   context 'POST api/v1/sign_up' do
     it 'with success' do
-      post api_v1_sign_up_path, params: 
-                              { user: 
+      post api_v1_sign_up_path, params:
+                              { user:
                                 {
                                   email: 'test@email.com',
                                   password: '123456',
                                   name: 'Test user'
-                                } 
+                                }
                               }
 
       user = User.last
@@ -23,13 +23,13 @@ describe 'Creating user account', type: :request do
     end
 
     it 'mandatory fields' do
-      post api_v1_sign_up_path, params: 
-      { user: 
+      post api_v1_sign_up_path, params:
+      { user:
         {
           email: '',
           password: '',
           name: ''
-        } 
+        }
       }
 
       expect(User.count).to eq 0

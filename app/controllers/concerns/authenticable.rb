@@ -1,18 +1,18 @@
 module Authenticable
   def valid_session?
-    token = request.headers['Authorization']&.split(' ')&.last
+    token = request.headers["Authorization"]&.split(" ")&.last
     return false unless token
-    
+
     decoded = decode_token(token)
     session = Session.find_by(token: decoded[0])
     return false unless session
 
     if session.expired_at < Time.current
       session.destroy!
-      return false
+      false
     else
       session.update(expired_at: 30.minutes.from_now)
-      return true
+      true
     end
   end
 
@@ -27,15 +27,15 @@ module Authenticable
   def authentication!
     unless valid_session?
       render json: {
-        error: 'Não autorizado',
+        error: "Não autorizado",
         _links: {
           sign_in: {
             href: api_v1_sign_in_url,
-            method: 'POST'
+            method: "POST"
           },
           sign_up: {
             href: api_v1_sign_up_url,
-            method: 'POST'
+            method: "POST"
           }
         }
       }, status: :unauthorized
