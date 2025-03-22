@@ -1,0 +1,16 @@
+pt-BR:
+  activerecord:
+    models:
+      user:
+        one: User
+        other: Usuários
+      room:
+        one: Sala
+        others: Salas
+    attributes:
+      user:
+        name: Nome
+        email: E-mail
+        password: Senha
+      room:
+        name: Nome
