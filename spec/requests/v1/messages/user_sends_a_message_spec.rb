@@ -6,7 +6,7 @@ describe 'User sends a message', type: :request do
       user = User.create!(name: 'Test', email: 'test@email.com', password: '123456')
       room = Room.create(name: 'Room 1')
 
-      post api_v1_room_messages_path(room), params: { 
+      post api_v1_room_messages_path(room), params: {
           message: {
             user_id: user.id,
             body: 'Hello World!'
@@ -25,7 +25,7 @@ describe 'User sends a message', type: :request do
       user = User.create!(name: 'Test', email: 'test@email.com', password: '123456')
       room = Room.create(name: 'Room 1')
 
-      post api_v1_room_messages_path(room), params: { 
+      post api_v1_room_messages_path(room), params: {
           message: {
             user_id: user.id,
             body: 'Hello World!'
@@ -43,7 +43,7 @@ describe 'User sends a message', type: :request do
       user = User.create!(name: 'Test', email: 'test@email.com', password: '123456')
       room = Room.create(name: 'Room 1')
 
-      post api_v1_room_messages_path(room), params: { 
+      post api_v1_room_messages_path(room), params: {
           message: {
             user_id: '',
             body: ''
