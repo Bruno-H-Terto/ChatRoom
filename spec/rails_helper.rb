@@ -17,6 +17,7 @@ end
 RSpec.configure do |config|
   config.include ActiveJob::TestHelper, type: :job
   config.include AuthHelper, type: :request
+  config.include SanitizerResponse, type: :request
   include FactoryBot::Syntax::Methods
 
   config.fixture_paths = [

@@ -2,12 +2,6 @@ require 'rails_helper'
 
 describe 'User create a room', type: :request do
   context 'POST api/v1/rooms' do
-    def sanitizer_response(object)
-      object.as_json(
-        except: [ :created_at, :updated_at ]
-        )
-    end
-
     it 'with success' do
       user = User.create!(name: 'Test', email: 'test@email.com', password: '123456')
 

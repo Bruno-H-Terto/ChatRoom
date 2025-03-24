@@ -10,9 +10,10 @@ Rails.application.routes.draw do
       root "rooms#index"
       post "sign_up", to: "sessions#sign_up", as: :sign_up, param: %i[ email password name ]
       post "sign_in", to: "sessions#sign_in", as: :sign_in, param: %i[ email password ]
-      resources :rooms, only: %i[ create show ] do
-        resources :messages, only: %i[ show create ]
+      resources :rooms, only: %i[ create ] do
+        resources :messages, only: %i[ index create ]
       end
+      get "messages", to: "messages#history", as: :messages, param: %i[ user_id ]
     end
   end
 end

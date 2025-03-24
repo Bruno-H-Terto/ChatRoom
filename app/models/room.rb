@@ -1,4 +1,5 @@
 class Room < ApplicationRecord
+  has_many :messages
   has_many :users, through: :messages
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: 128 }
 end

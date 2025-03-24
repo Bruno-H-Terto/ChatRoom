@@ -7,6 +7,9 @@ pt-BR:
       room:
         one: Sala
         others: Salas
+      message:
+        one: Mensagem
+        other: Mensagens
     attributes:
       user:
         name: Nome
@@ -14,3 +17,10 @@ pt-BR:
         password: Senha
       room:
         name: Nome
+      message:
+        user: Usuário
+        user_id: Usuário
+        romm: Sala
+        romm_id: Sala
+        body: Corpo da mensagem
+        
